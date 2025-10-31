@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blink — Settings</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div class="options">
+    <h2>⚙️ Blink Settings</h2>
+    
+    <!-- Theme Settings -->
+    <div class="settings-section">
+      <h3>🎨 Theme Settings</h3>
+      <div class="form-group">
+        <label for="themeMode">Theme Mode</label>
+        <select id="themeMode">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="custom">Custom</option>
+        </select>
+      </div>
+
+      <div id="customColors" class="form-group custom-colors">
+        <div class="color-input">
+          <label for="bgColor">Background Color</label>
+          <input type="color" id="bgColor" value="#2b6cb0" />
+        </div>
+        <div class="color-input">
+          <label for="accentColor">Accent Color</label>
+          <input type="color" id="accentColor" value="#38a169" />
+        </div>
+        <div class="color-input">
+          <label for="textColor">Text Color</label>
+          <input type="color" id="textColor" value="#ffffff" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fontStyle">Font Style</label>
+        <select id="fontStyle">
+          <option value="'Segoe UI', system-ui, sans-serif">System UI</option>
+          <option value="'Arial', sans-serif">Arial</option>
+          <option value="'Times New Roman', serif">Times New Roman</option>
+          <option value="'Courier New', monospace">Courier New</option>
+        </select>
+      </div>
+    </div>
+
+    
+    <!-- Category Settings -->
+    <div class="settings-section">
+      <h3>🏷️ Website Categories</h3>
+      <p class="helper-text">Manage website categories and their associated domains. Add one website per line.</p>
+      
+      <div class="category-list">
+        <!-- Categories will be dynamically added here -->
+      </div>
+
+      <button id="addCategory" class="secondary-button">
+        <span class="material-icons">add</span> Add Category
+      </button>
+    </div>
+
+    <!-- Template for new category items -->
+    <template id="category-template">
+      <div class="category-item">
+        <div class="category-header">
+          <input type="text" class="category-name" placeholder="Category Name">
+          <button class="delete-category icon-button">
+            <span class="material-icons">delete</span>
+          </button>
+        </div>
+        <textarea class="domain-list" rows="4" 
+                  placeholder="Enter one domain per line&#10;e.g., example.com"></textarea>
+      </div>
+    </template>
+
+    <div class="button-group">
+      <button id="save" class="primary-button">
+        <span class="material-icons">save</span> Save Changes
+      </button>
+      <button id="reset" class="secondary-button">
+        <span class="material-icons">settings_backup_restore</span> Reset to Default
+      </button>
+    </div>
+    <p id="msg" class="message"></p>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

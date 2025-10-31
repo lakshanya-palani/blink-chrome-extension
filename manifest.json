@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Blink",
+  "version": "2.0",
+  "description": "Floating timer that tracks sites, categorizes usage, and reminds you to take breaks or get back to work.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting",
+    "idle",
+    "notifications"
+  ],
+  "web_accessible_resources": [{
+    "resources": ["options.html", "styles.css", "options.js"],
+    "matches": ["<all_urls>"]
+  }],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
